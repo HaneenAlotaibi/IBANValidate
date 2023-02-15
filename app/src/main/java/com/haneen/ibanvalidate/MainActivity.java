@@ -10,11 +10,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -22,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     TextView IBAN;
     String url;
     EditText mEdit;
-    Button mButton,move;
+    Button mButton, move;
     TextView text;
 
     @SuppressLint("MissingInflatedId")
@@ -32,45 +34,48 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mEdit = findViewById(R.id.IBANID);
         mButton = findViewById(R.id.button);
-        move=findViewById(R.id.move);
+        move = findViewById(R.id.move);
         IBAN = findViewById(R.id.textView2);
-        text=findViewById(R.id.text);
+        text = findViewById(R.id.text);
         move.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this,Rates.class);
+                Intent intent = new Intent(MainActivity.this, Rates.class);
                 startActivity(intent);
             }
         });
 
-//
-        url = "https://api.apilayer.com/bank_data/iban_validate?iban_number=DE89370400440532013000&apikey=PkxRBFn5iSacIOm9eTDSPvfbSENIGBGn";
-        System.out.println("empty"+mEdit.getText().toString());
+        System.out.println("empty" + mEdit.getText().toString());
 
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+        mButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if(mEdit.getText().toString().isEmpty()){
+                    IBAN.setVisibility(View.VISIBLE);
+                    IBAN.setText("Please enter IBAN number");
+                }
+                System.out.println("mEdit: " + mEdit.getText().toString());
+                url = "https://api.apilayer.com/bank_data/iban_validate?iban_number=" + mEdit.getText().toString() + "&apikey=PkxRBFn5iSacIOm9eTDSPvfbSENIGBGn";
+                System.out.println("URL: " + url);
+                Json(url);
+            }
+        });
+    }
+
+    public void Json(String url1) {
+
+       // System.out.println("inside json");
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url1, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    String iban = response.getString("iban");
+                    //System.out.println("inside ");
+                    String iban = response.getString("message");
+                    IBAN.setVisibility(View.VISIBLE);
                     IBAN.setText(iban);
 
                     Log.d("MainActivity", "iban");
-                    mButton.setOnClickListener(new View.OnClickListener() {
-                        public void onClick(View v) {
 
-                            if(mEdit.getText().toString().equals(iban))
-                            {
-                                System.out.println("iban"+iban);
-                                System.out.println(IBAN.getText().toString());
-                                text.setVisibility(View.VISIBLE);
-                                text.setText("the IBAN is valid");}
-                            if(!mEdit.getText().toString().equals(iban)) {
-                                text.setVisibility(View.VISIBLE);
-                                text.setText("the IBAN is invalid");
-                            }
-                        }
-                    });
-//                    clickbutton( view,iban);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -84,26 +89,10 @@ public class MainActivity extends AppCompatActivity {
         });
         System.out.println(IBAN.getText().toString());
 
-        Volley.newRequestQueue(this).add(request);
-//        mButton.setOnClickListener(new View.OnClickListener() {
-//        @Override
-//        public void onClick(View view) {
-//            Toast.makeText(getApplicationContext(), "the IBAN is valid ", Toast.LENGTH_SHORT).show();
-//        }
-//    })
+        Volley.newRequestQueue(MainActivity.this).add(request);
+    }
 
 }
-//    public void clickbutton(View view,String iban){
-//        if(iban.equals(IBAN.getText().toString()))
-//        { Toast.makeText(getApplicationContext(), "the IBAN is valid ", Toast.LENGTH_SHORT).show();
-//      text.setVisibility(View.VISIBLE);
-//      text.setText("the IBAN is valid");}
-//        else {
-//            text.setVisibility(View.VISIBLE);
-//            text.setText("the IBAN is invalid");
-//        }
-
-    }
 
 
 
