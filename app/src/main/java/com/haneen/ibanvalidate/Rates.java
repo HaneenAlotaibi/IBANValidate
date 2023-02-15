@@ -3,6 +3,7 @@ package com.haneen.ibanvalidate;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,7 +26,7 @@ public class Rates extends AppCompatActivity {
     EditText amount;
     TextView EUR,AED,USD,GBP;
     String url;
-    Button Convert;
+    Button Convert,move;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -34,12 +35,19 @@ public class Rates extends AppCompatActivity {
         setContentView(R.layout.activity_rates);
         amount = findViewById(R.id.editTextNumber);
         Convert = findViewById(R.id.button2);
+        move = findViewById(R.id.move);
         EUR =findViewById(R.id.EURValue);
         AED =findViewById(R.id.AEDValue);
         USD =findViewById(R.id.USDValue);
         GBP =findViewById(R.id.GBPValue);
 
-
+        move.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Rates.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
         Convert.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 //
