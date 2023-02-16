@@ -4,24 +4,24 @@
     android:layout_height="match_parent" >
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/restaurantname"
+            android:id="@+id/Currencies"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:fontFamily="sans-serif-condensed"
-            android:text="Currencies"
+            android:text="@string/currencies"
             android:textColor="@color/purple_500"
-            android:textSize="20sp"></TextView>
+            android:textSize="20sp"/>
 
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardViewStarter"
             android:layout_width="500dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/restaurantname"
+            android:layout_below="@id/Currencies"
             android:layout_centerHorizontal="true"
             android:layout_margin="20dp">
 
@@ -35,7 +35,7 @@
                     android:layout_height="50dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/kuwaitflag"
-                    android:layout_marginTop="10sp"></ImageView>
+                    android:layout_marginTop="10sp"/>
 
 
                 <TextView
@@ -45,9 +45,9 @@
                     android:layout_gravity="center"
                     android:layout_margin="20sp"
                     android:fontFamily="sans-serif-black"
-                    android:text="KWD  "
+                    android:text="@string/kwd"
                     android:textColor="@color/purple_200"
-                    android:textSize="20sp"></TextView>
+                    android:textSize="20sp"/>
 
 
                 <EditText
@@ -60,7 +60,7 @@
                     android:inputType="number"
                     android:textColor="@color/purple_200"
                     android:textSize="20sp"
-                    ></EditText>
+                    />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
@@ -74,7 +74,7 @@
             android:layout_marginTop="20sp"
             android:layout_marginEnd="20sp"
             android:layout_marginBottom="20sp"
-            android:text="Convert" />
+            android:text="@string/convert" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardViewStarter1"
@@ -94,7 +94,7 @@
                     android:layout_height="50dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/euflag"
-                    android:layout_marginTop="10sp"></ImageView>
+                    android:layout_marginTop="10sp"/>
 
 
                 <TextView
@@ -104,9 +104,9 @@
                     android:layout_gravity="center"
                     android:layout_margin="20sp"
                     android:fontFamily="sans-serif-black"
-                    android:text="EUR  "
+                    android:text="@string/eur"
                     android:textColor="@color/purple_200"
-                    android:textSize="20sp"></TextView>
+                    android:textSize="20sp"/>
 
 
                 <TextView
@@ -118,7 +118,7 @@
                     android:fontFamily="sans-serif-black"
                     android:textColor="@color/purple_200"
                     android:textSize="20sp"
-                    ></TextView>
+                    />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
@@ -141,7 +141,7 @@
                     android:layout_height="50dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/emiratesflag"
-                    android:layout_marginTop="10sp"></ImageView>
+                    android:layout_marginTop="10sp"/>
 
 
                 <TextView
@@ -151,9 +151,9 @@
                     android:layout_gravity="center"
                     android:layout_margin="20sp"
                     android:fontFamily="sans-serif-black"
-                    android:text="AED  "
+                    android:text="@string/aed"
                     android:textColor="@color/purple_200"
-                    android:textSize="20sp"></TextView>
+                    android:textSize="20sp"/>
 
 
                 <TextView
@@ -165,7 +165,7 @@
                     android:fontFamily="sans-serif-black"
                     android:textColor="@color/purple_200"
                     android:textSize="20sp"
-                    ></TextView>
+                    />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
@@ -189,7 +189,7 @@
                     android:layout_height="50dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/usflag"
-                    android:layout_marginTop="10sp"></ImageView>
+                    android:layout_marginTop="10sp"/>
 
 
                 <TextView
@@ -199,9 +199,9 @@
                     android:layout_gravity="center"
                     android:layout_margin="20sp"
                     android:fontFamily="sans-serif-black"
-                    android:text="USD  "
+                    android:text="@string/usd"
                     android:textColor="@color/purple_200"
-                    android:textSize="20sp"></TextView>
+                    android:textSize="20sp"/>
 
 
                 <TextView
@@ -213,7 +213,7 @@
                     android:fontFamily="sans-serif-black"
                     android:textColor="@color/purple_200"
                     android:textSize="20sp"
-                    ></TextView>
+                    />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
@@ -235,7 +235,7 @@
                     android:layout_height="50dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/ukflag"
-                    android:layout_marginTop="10sp"></ImageView>
+                    android:layout_marginTop="10sp"/>
 
 
                 <TextView
@@ -245,9 +245,9 @@
                     android:layout_gravity="center"
                     android:layout_margin="20sp"
                     android:fontFamily="sans-serif-black"
-                    android:text="GBP  "
+                    android:text="@string/gbp"
                     android:textColor="@color/purple_200"
-                    android:textSize="20sp"></TextView>
+                    android:textSize="20sp"/>
 
 
                 <TextView
@@ -259,7 +259,7 @@
                     android:fontFamily="sans-serif-black"
                     android:textColor="@color/purple_200"
                     android:textSize="20sp"
-                    ></TextView>
+                    />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
@@ -273,7 +273,7 @@
             android:layout_marginTop="10sp"
             android:layout_marginEnd="20sp"
             android:layout_marginBottom="20sp"
-            android:text="main" />
+            android:text="@string/main" />
 
     </RelativeLayout>
 </ScrollView>

@@ -12,13 +12,13 @@
             android:id="@+id/Convert"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Convert"
+            android:text="@string/convert"
             />
         <Button
             android:id="@+id/IBAN"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="IBAN"
+            android:text="@string/iban"
             android:layout_below="@id/Convert"
             />
     </RelativeLayout>
